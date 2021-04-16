@@ -5,10 +5,11 @@ const sass = require('gulp-sass');
 const spritesmith = require('gulp.spritesmith');
 const rimraf = require('rimraf');
 const rename = require('gulp-rename');
-// const { src, dest } = require('gulp');
+const autoprefixer = require('gulp-autoprefixer'); // не используется
+const sourcemaps = require('gulp-sourcemaps'); // не используется
 
 
-/*----------server----------*/
+/*----------Server----------*/
 gulp.task('server', function() {
     browserSync.init({
       server: {
@@ -20,7 +21,7 @@ gulp.task('server', function() {
     gulp.watch('build/**/*').on('change', browserSync.reload);
 });
 
-/*----------pug compile----------*/
+/*----------Pug compile----------*/
 gulp.task('templates:compile', function buildHTML(){
     return gulp.src('source/template/index.pug')
     .pipe(pug({
@@ -29,7 +30,7 @@ gulp.task('templates:compile', function buildHTML(){
     .pipe(gulp.dest('build'));
 });
 
-/*----------styles compile----------*/
+/*----------Styles compile----------*/
 gulp.task('styles:compile', function (){
     return gulp.src('source/styles/main.scss')
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
@@ -37,7 +38,7 @@ gulp.task('styles:compile', function (){
     .pipe(gulp.dest('build/css'));
 });
 
-/*----------sprite----------*/
+/*----------Sprite----------*/
 gulp.task('sprite', function (cb) {
     const spriteData = gulp.src('source/images/icons/*.png').pipe(spritesmith({
       imgName: 'sprite.png',
@@ -50,33 +51,33 @@ gulp.task('sprite', function (cb) {
     cb();
 });
 
-/*----------delete----------*/
+/*----------Delete----------*/
 gulp.task('clean', function del(cb) {
     return rimraf('build', cb); //plagin for delete
 });
 
-/*----------copy fonts----------*/
+/*----------Copy fonts----------*/
 gulp.task('copy:fonts', function() {
     return gulp.src('./source/fonts/**/*.*')
     .pipe(gulp.dest('build/fonts'));
 });
 
-/*----------copy images----------*/
+/*----------Copy images----------*/
 gulp.task('copy:images', function() {
     return gulp.src('./source/images/**/*.*')
     .pipe(gulp.dest('build/images'));
 });
 
-/*----------copy----------*/
+/*----------Copy----------*/
 gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
 
-/*----------watchers----------*/
+/*----------Watchers----------*/
 gulp.task('watch', function() {
     gulp.watch('source/template/**/*.pug', gulp.series('templates:compile'));
     gulp.watch('source/styles/**/*.scss', gulp.series('styles:compile'));
 });
 
-/*----------default----------*/
+/*----------Default----------*/
 gulp.task('default', gulp.series(
     'clean',
     gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
