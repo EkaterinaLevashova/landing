@@ -27,7 +27,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bootstrap-icons": "^1.4.1",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-sourcemaps": "^3.0.0",
     "normalize-scss": "^7.0.1"
