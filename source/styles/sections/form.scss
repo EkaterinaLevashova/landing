@@ -8,7 +8,7 @@
     }
 
     .title {
-        margin-bottom: 12px;
+        margin-bottom: 20px;
     }
 
     .btn-down {
@@ -58,6 +58,7 @@
     }
 
     &__close-button {
+        font-family: $ff-main-light;
         position: absolute;
         right: -16px;
         top: -22px;
@@ -66,10 +67,14 @@
         height: 50px;
         border: 2px solid #ffff;
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #fff;
         background: #de2b24;
         transition: 0.3s;
+        
+        // &--center {
+        //     @include centerer();
+        // }
 
         &:hover {
             background: lighten(#de2b24, 10%);
@@ -107,6 +112,10 @@
     .button {
         padding: 15px 30px;
         border: none;
+        
+        &--red {
+            padding: 15px 35px;
+            font-family: $ff-main-bold;
+        }
     }
-
 }

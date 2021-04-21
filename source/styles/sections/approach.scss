@@ -1,5 +1,5 @@
 .approach {
-    padding: 86px 0 94px;
+    padding: 86px 0 98px;
     background-color: #f3f3f3;
 
     .title {
@@ -54,6 +54,7 @@
         max-height: 236px;
         display: inline-block;
         vertical-align: top;
+        padding-top: 20px;
 
         @media (max-width: 985px) {
             max-width: call(340px / 1.5);
@@ -92,7 +93,7 @@
     &__step {
         @include centerer-y();
 
-        right: -58px;
+        right: -52px;
         width: 103px;
         height: 103px;
         padding-top: 10px;
@@ -108,8 +109,8 @@
             counter-increment: count;
             display: block;
             font-family: $ff-steps;
-            font-size: 3rem;
-            line-height: 1;
+            font-size: 3.1rem;
+            line-height: 0.9;
             color: #fff;
         }
 
@@ -126,7 +127,7 @@
 
     }
 
-    &__desciption {
+    &__description {
         margin: 0;
         line-height: 1.5;
     }
