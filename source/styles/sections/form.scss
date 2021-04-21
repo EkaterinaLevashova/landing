@@ -22,6 +22,7 @@
 
     .arrow-down {
         @include centerer();
+        padding: 20px; 
 
         .fa {
             width: 25px;
