@@ -2,6 +2,7 @@
 
     let openFormButton = document.querySelector('.arrow-down');
     let form = document.querySelector('.form');
+    let nav = document.querySelector('.nav');
 
     if (openFormButton) {
         openFormButton.addEventListener('click', function(e) {
